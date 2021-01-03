@@ -279,3 +279,70 @@ class ProxyFetcher(object):
             ips = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}", r.text)
             for ip in ips:
                 yield ip.strip()
+
+    @staticmethod
+    def freeProxy15():
+        """
+        http://ip.ihuan.me/
+        小幻HTTP代理
+        :return:
+        """
+        urls = ['https://ip.ihuan.me/address/5Lit5Zu9.html?page=b97827cc',
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=4ce63706",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=5crfe930",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=f3k1d581",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=ce1d45977",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=881aaf7b5",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=eas7a436",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=981o917f5",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=2d28bd81a",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=a42g5985d",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=came0299",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=e92k59727",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=242r0e7b5",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=bc265a560",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=622b6a5d3",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=ae3g7e7aa",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=b01j07395",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=68141a2df",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=904545743",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=0134c4568",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=885t249e8",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=ed442164b",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=806fe4987",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=0558da7f4",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=3734334de",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=636g6d8ca",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=3252d86d1",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=d67sbb99f",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=0e1q9e209",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=078e9d9eb",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=476p30758",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=9520ab2cf",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=cd7772718",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=669i449ed",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=7c7l8a702",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=637sa470e",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=645pdd5b9",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=e25uc357c",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=c19of28a3",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=5fa0ad8bb",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=eabh0997c",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=026i27546",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=859ddf7d1",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=33b0f488f",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=602q622b1",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=75bge08a1",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=562ud6274",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=943073281",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=dec88f8ec",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=bdauca7c9",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=8dcoec821",
+                "https://ip.ihuan.me/address/5Lit5Zu9.html?page=fa84ca5bd"]
+        for url in urls:
+            r = WebRequest().get(url, timeout=10)
+            proxies = re.findall(
+                r'<td.*?>[\s\S]*?(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})[\s\S]*?</td>[\s\S]*?<td.*?>[\s\S]*?(\d+)[\s\S]*?</td>',
+                r.text)
+            for proxy in proxies:
+                yield ':'.join(proxy)
